@@ -5,7 +5,7 @@ function checkCashRegister(price, cash, cid) {
   const closed = 'CLOSED';
   const open = 'OPEN';
   const name = ['ONE HUNDRED','TWENTY','TEN','FIVE','DOLLAR','QUARTER','DIME','NICKEL','PENNY'];
-  const value = [100,20,10,5,1,.25,.1,.05,.01];
+  const value = [100, 20, 10, 5, 1, .25, .1, .05, .01];
   let change = {'status': open, 'change': []};
 
   // calc total in cash drawer
@@ -34,10 +34,13 @@ function checkCashRegister(price, cash, cid) {
   // is greater than 100? 20? 10? 5? 1? .25? .1? .05? .01?
   for (let i = 0; i < value.length; i++){
     if(dif > value[i]){
-      console.log('greater than ' + value[i]);
-      if(cid[])
+      for (let j = 0; j < cid.length; j++){
+        if (cid[j] === name[i]){
+          console.log(cid[j]);
+        }
+      }
       // do we have those? (yes - how many?) (no - go to next one down)
-      console.log(dif / value[i]);
+      //console.log(dif / value[i]);
     }
   }
   // subtract from dif - go back to loop
@@ -51,7 +54,7 @@ function checkCashRegister(price, cash, cid) {
   // if it is equal to the change due.
   // cash-in-drawer as the value for the key change 
   if (total === dif){
-    return {status: "CLOSED", change: [money]};
+    //return {status: "CLOSED", change: [money]};
   }
 
   // Otherwise, 
