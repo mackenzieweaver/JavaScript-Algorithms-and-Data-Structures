@@ -8,15 +8,14 @@ function checkCashRegister(price, cash, cid) {
     cidTotal += cid[i][1];
   }
   let total = parseFloat(cidTotal.toFixed(2))
-  //subtract the cash from the price
   let dif = cash - price;
-  for (let i = 0; i < value.length; i++){ // is greater than 100? 20? 10? 5? 1? .25? .1? .05? .01?
-    if(dif > value[i]){
-      console.log(name[value[i]]);
-    }
-  }
   if (total < dif){
     return {status: "INSUFFICIENT_FUNDS", change: []};
+  }
+  for (let i = 0; i < value.length; i++){ // is greater than 100? 20? 10? 5? 1? .25? .1? .05? .01?
+    while (dif > value[i]){
+      dif -= value[i];
+    }
   }
   return change;
 }
