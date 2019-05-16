@@ -1,18 +1,22 @@
 function whatIsInAName(collection, source) {
-  // What's in a name?
   var arr = [];
-  // Only change code below this line
-  for (let keys in source){
-    for (let item in collection){
-      for (let prop in collection[item]){
-        if (keys === prop && source[keys] === collection[item][prop]){
-          arr.push(collection[item]);
+  for (let item in collection){
+    let decide = [];
+    for (let key in source){
+      if (collection[item].hasOwnProperty(key)){
+        if (collection[item][key] === source[key]){
+          decide.push(true);
+        } else {
+          decide.push(false);
         }
+      } else {
+        decide.push(false);
       }
     }
+    if (!decide.includes(false)) {
+      arr.push(collection[item]);
+    }
   }
-  // Only change code above this line
   return arr;
 }
-
-whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 });
