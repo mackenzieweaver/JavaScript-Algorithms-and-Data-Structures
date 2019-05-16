@@ -12,11 +12,14 @@ function checkCashRegister(price, cash, cid) {
   if (total < dif){
     return {status: "INSUFFICIENT_FUNDS", change: []};
   }
+  let answer = [];
   for (let i = 0; i < value.length; i++){ // is greater than 100? 20? 10? 5? 1? .25? .1? .05? .01?
-    while (dif > value[i]){
+    while (dif >= value[i]){
       dif -= value[i];
     }
   }
+  change.change.push(answer);
+  console.log(change.change);
   return change;
 }
 checkCashRegister(
