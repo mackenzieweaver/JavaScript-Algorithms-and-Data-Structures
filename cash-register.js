@@ -1,4 +1,4 @@
-// 3/6 tests pass
+// 4/6 tests pass
 
 function checkCashRegister(price, cash, cid) {
 
@@ -14,9 +14,13 @@ function checkCashRegister(price, cash, cid) {
     cidTotal += cid[i][1];
   }
   let total = parseFloat(cidTotal.toFixed(2))
+  let dif = cash - price;
+  if(total < dif){
+    change.status = 'INSUFFICIENT_FUNDS'
+    return change;
+  }
 
   // where the magic happens
-  let dif = cash - price;
   for (let i = 0; i < value.length; i++){ // is greater than 100? 20? 10? 5? 1? .25? .1? .05? .01?
     let arr = [];  
     let num = 0;
