@@ -1,3 +1,5 @@
+// 3/6 tests pass
+
 function checkCashRegister(price, cash, cid) {
 
   const name = ['ONE HUNDRED','TWENTY','TEN','FIVE','ONE','QUARTER','DIME','NICKEL','PENNY'];
