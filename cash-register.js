@@ -1,4 +1,5 @@
-// 4/6 tests pass
+// 5/6 tests to pass
+// https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/javascript-algorithms-and-data-structures-projects/cash-register
 
 function checkCashRegister(price, cash, cid) {
 
@@ -17,6 +18,11 @@ function checkCashRegister(price, cash, cid) {
   let dif = cash - price;
   if(total < dif){
     change.status = 'INSUFFICIENT_FUNDS'
+    return change;
+  }
+  if (total === dif){
+    change.status = 'CLOSED'
+    change.change = cid;
     return change;
   }
 
