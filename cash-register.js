@@ -1,10 +1,6 @@
-// 2/6 tests pass
-// https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/javascript-algorithms-and-data-structures-projects/cash-register
-// test 3 - 'PENNY' off-by-one error (it's 3 when it should be 4)
-
 function checkCashRegister(price, cash, cid) {
 
-  const name = ['ONE HUNDRED','TWENTY','TEN','FIVE','DOLLAR','QUARTER','DIME','NICKEL','PENNY'];
+  const name = ['ONE HUNDRED','TWENTY','TEN','FIVE','ONE','QUARTER','DIME','NICKEL','PENNY'];
   const value = [100, 20, 10, 5, 1, .25, .1, .05, .01];
   const ascVal = [.01, .05, .1, .25, 1, 5, 10, 20, 100];
   const ascNam = ['PENNY', 'NICKEL', 'DIME', 'QUARTER', 'DOLLAR', 'FIVE', 'TEN', 'TWENTY', 'ONE HUNDRED'];
@@ -29,10 +25,11 @@ function checkCashRegister(price, cash, cid) {
       }
       arr.push(name[i]);      
       arr.push(num);
-      dif -= num;
+      dif = (dif - num).toFixed(2);
       change.change.push(arr);
     }
   }
+  console.log(change.status);
   console.log(change.change);
   return change;
 }
@@ -51,4 +48,3 @@ checkCashRegister(
     ["ONE HUNDRED", 100]  // 8
   ]
 );
-
