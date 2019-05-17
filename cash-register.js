@@ -8,23 +8,26 @@ function checkCashRegister(price, cash, cid) {
     cidTotal += cid[i][1];
   }
   let total = parseFloat(cidTotal.toFixed(2))
+
+  // example: 0.50 cents
   let dif = cash - price;
-  if (total < dif){
-    return {status: "INSUFFICIENT_FUNDS", change: []};
-  }
-  let answer = [];
+  let answer = [];  
   for (let i = 0; i < value.length; i++){ // is greater than 100? 20? 10? 5? 1? .25? .1? .05? .01?
-    while (dif >= value[i]){
-      dif -= value[i];
+    let arr = [];  
+    let num = 0;
+    if (dif >= value[i]){
+      num = value[i] * (Math.floor(dif/value[i]));
+      arr.push(name[i]);
+      arr.push(num);
+      dif -= num;
     }
+    answer.push(arr);
   }
-  change.change.push(answer);
-  console.log(change.change);
   return change;
 }
 checkCashRegister(
-  19.5, 
-  20, 
+  2.40, 
+  20.00, 
   [
     ["PENNY", 1.01], 
     ["NICKEL", 2.05], 
