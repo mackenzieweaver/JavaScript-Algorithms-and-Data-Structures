@@ -1,7 +1,10 @@
+// 2/6 tests pass
+// https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/javascript-algorithms-and-data-structures-projects/cash-register
+
 function checkCashRegister(price, cash, cid) {
   const name = ['ONE HUNDRED','TWENTY','TEN','FIVE','DOLLAR','QUARTER','DIME','NICKEL','PENNY'];
   const value = [100, 20, 10, 5, 1, .25, .1, .05, .01];
-  let change = {'status': open, 'change': []};
+  let change = {'status': 'OPEN', 'change': []};
   // total in cash drawer
   let cidTotal = 0;
   for (let i = 0; i < cid.length; i++){
@@ -11,7 +14,6 @@ function checkCashRegister(price, cash, cid) {
 
   // example: 0.50 cents
   let dif = cash - price;
-  let answer = [];  
   for (let i = 0; i < value.length; i++){ // is greater than 100? 20? 10? 5? 1? .25? .1? .05? .01?
     let arr = [];  
     let num = 0;
@@ -20,13 +22,13 @@ function checkCashRegister(price, cash, cid) {
       arr.push(name[i]);
       arr.push(num);
       dif -= num;
+      change.change.push(arr);
     }
-    answer.push(arr);
   }
   return change;
 }
 checkCashRegister(
-  2.40, 
+  19.50, 
   20.00, 
   [
     ["PENNY", 1.01], 
