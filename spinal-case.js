@@ -8,7 +8,9 @@ function spinalCase(str) {
     str.splice(index, 0, ' ');
   }
 
+  str = str.join('');
   str = str.replace(/[_]|\s/g, '-').toLowerCase();
+  console.log(str);
   return str;
 }
 
