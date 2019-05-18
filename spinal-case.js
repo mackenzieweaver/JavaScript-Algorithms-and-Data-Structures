@@ -5,7 +5,9 @@ function spinalCase(str) {
   for (let i = 1; i < arr.length; i++){
     let index = str.indexOf(arr[i]);
     str[index] = str[index].toLowerCase();
-    str.splice(index, 0, ' ');
+    if(str[index - 1] !== ' '){
+      str.splice(index, 0, ' ');
+    }
   }
 
   str = str.join('');
