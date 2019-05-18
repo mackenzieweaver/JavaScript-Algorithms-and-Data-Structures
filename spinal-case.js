@@ -1,6 +1,6 @@
 function spinalCase(str) {
   let arr = str.match(/[A-Z]/g); // find the capitals
-
+  str = str.replace(/[_]|\s/g, '-').toLowerCase();
   str = str.split('');
   for (let i = 0; i < arr.length; i++){
     let index = str.indexOf(arr[i]);
@@ -13,7 +13,6 @@ function spinalCase(str) {
   }
 
   str = str.join('');
-  str = str.replace(/[_]|\s/g, '-').toLowerCase();
   console.log(str);
   return str;
 }
