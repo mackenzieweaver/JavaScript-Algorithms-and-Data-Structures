@@ -1,13 +1,15 @@
 function spinalCase(str) {
-  let arr = str.match(/[A-Z]/g); // arr of capitals
-  console.log(arr);
+  let arr = str.match(/[A-Z]/g); // find the capitals
+
+  str = str.split('');
   for (let i = 1; i < arr.length; i++){
-    str.splice(indexOf(str[arr[i]]), 0, ' ');
+    let index = str.indexOf(arr[i]);
+    str[index] = str[index].toLowerCase();
+    str.splice(index, 0, ' ');
   }
-  console.log(str);
-  //str = str.replace(/[_]|\s/g, '-').toLowerCase();
-  //console.log(str.split(/[_]|\s|[A-Z]/));
+
+  str = str.replace(/[_]|\s/g, '-').toLowerCase();
   return str;
 }
 
-console.log(spinalCase("AllThe-small Things"));
+spinalCase("AllThe-small Things");
