@@ -1,11 +1,13 @@
-// https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/intermediate-algorithm-scripting/pig-latin
 function translatePigLatin(str) {
   const re = /[aeiou]/;
+  let vowel = str.match(re);
+  let i = str.indexOf(vowel);
   str = str.split('');
   if (re.test(str[0])){
     return str.join('').concat('way');
   }
-  return str;
+  let slice = str.splice(0, i);
+  return str.join('').concat(slice.join('')).concat('ay');
 }
 
-translatePigLatin("eight");
+translatePigLatin("glove");
