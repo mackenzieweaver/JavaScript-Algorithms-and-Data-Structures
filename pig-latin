@@ -1,0 +1,11 @@
+// https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/intermediate-algorithm-scripting/pig-latin
+function translatePigLatin(str) {
+  const re = /[aeiou]/;
+  str = str.split('');
+  if (re.test(str[0])){
+    return str.join('').concat('way');
+  }
+  return str;
+}
+
+translatePigLatin("eight");
