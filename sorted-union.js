@@ -19,6 +19,7 @@ function uniteUnique(...arr) {
       }
     }
   }
+  // consolidate into 1 array
   for (let l = 0; l < arr.length; l++){
     myArr = myArr.concat(arr[l]);
   }
