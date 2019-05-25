@@ -7,10 +7,13 @@ function uniteUnique(...arr) {
     for (let j = 0; j < arr[i].length; j++){ 
       // check all other arrays
       for (let k = 0; k < arr.length; k++){
+        // skip self
         if (arr[i] == arr[k]){
           continue;
         }
+        // if other array includes current value
         if(arr[k].includes(arr[i][j])){
+          // delete it from that array
           arr[k].splice(arr[k].indexOf(arr[i][j]), 1);
         }
       }
