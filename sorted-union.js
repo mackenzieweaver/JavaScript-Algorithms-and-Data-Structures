@@ -5,20 +5,11 @@ function uniteUnique(...arr) {
     // for each value 
     for (let j = 0; j < arr[i].length; j++){ 
       // check all other arrays
-      for (let k = 0; k < arr.length; k++){     
-        console.log(arr[k]);
-        /*
-        if (arr[i] === arr[k]){
-          continue;
-        } 
-        */
-        /*
-        // if value in next array
-        if (arr[i + k].includes(arr[i][j])){ 
-          // delete value from next array
-          arr[i + k].splice(arr[i + 1].indexOf(arr[i][j]), 1); 
+      for (let k = 0; k < arr.length; k++){
+        if (arr[i] === arr[k]){               
+          console.log(arr[k]);
+          j += 1;
         }
-        */
       }
     }
   }
