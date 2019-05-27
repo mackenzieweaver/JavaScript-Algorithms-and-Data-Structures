@@ -20,8 +20,10 @@ function sumPrimes(num) {
     }
   }
 
-  console.log(arr);
-  return num;
+  // Sum the array
+  ans = arr.reduce((a,b) => a + b, 0);
+  
+  return ans;
 }
 
 sumPrimes(30);
