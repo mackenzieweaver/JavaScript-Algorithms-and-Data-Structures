@@ -9,18 +9,18 @@ function smallestCommons(arr) {
   }
   let seguir = true;
   let multiple = 2
-  let scm = 0;
+  let scf = 0;
   while ( seguir ) {    
     // compare multiples of the largest value in the array
-    scm = arr[1] * multiple++;
+    scf = arr[1] * multiple++;
     // remove all values that divide evenly
-    if (newArr.filter(num => (compare % num)  !== 0).length === 0){
+    if (newArr.filter(num => (scf % num)  !== 0).length === 0){
       // if there are none left exit the loop
       seguir = false;
     }
   }
   // the smallest common factor
-  return scm;
+  return scf;
 }
 
 
