@@ -11,7 +11,7 @@ function smallestCommons(arr) {
   let compare = 0;
   while ( seguir ) {
     compare = arr[1] * multiple;
-    newArr.filter(x => compare % x  === 0);
+    newArr = newArr.filter(num => (compare % num)  === 0);
     multiple += 1;
   }
   console.log(newArr);
