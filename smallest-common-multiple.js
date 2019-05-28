@@ -1,20 +1,26 @@
 //https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/intermediate-algorithm-scripting/smallest-common-multiple
 function smallestCommons(arr) {
-  arr = (arr.sort((a, b) => a - b));
+  // Ascending order
+  arr = (arr.sort((a, b) => a - b));  
+  // all values between the 2 input values (inclusive)
   let newArr = [];
   for(let i = arr[0]; i <= arr[1]; i++){
     newArr.push(i);
   }
-  console.log(newArr);
   let seguir = true;
   let multiple = 2
-  let compare = 0;
-  while ( seguir ) {
-    compare = arr[1] * multiple;
-    newArr = newArr.filter(num => (compare % num)  === 0);
-    multiple += 1;
+  let scm = 0;
+  while ( seguir ) {    
+    // compare multiples of the largest value in the array
+    scm = arr[1] * multiple++;
+    // remove all values that divide evenly
+    if (newArr.filter(num => (compare % num)  !== 0).length === 0){
+      // if there are none left exit the loop
+      seguir = false;
+    }
   }
-  console.log(newArr);
+  // the smallest common factor
+  return scm;
 }
 
 
