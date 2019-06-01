@@ -7,7 +7,11 @@ function addTogether(...args) {
       // return a function
       return function(arg) {
         // which adds the number that was given plus another
-        return args[0] + arg;
+        if (typeof arg === 'number'){
+          return args[0] + arg;
+        } else {
+          return;
+        }
       }
     } 
     // otherwise, if we have both numbers
